@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StorageEnum} from '../shared/enum/storage.enum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dragons-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DragonsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit() {
+  }
+
+  public logout(): void {
+    this.router.navigate(['login']).then(() => {
+      localStorage.setItem(StorageEnum.TOKEN, '');
+    });
   }
 
 }
