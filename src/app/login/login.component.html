@@ -2,21 +2,23 @@
   <div class="row">
     <h1>Dragons App</h1>
   </div>
-  <div class="row">
-    <div class="input-field col offset-s3 s6">
-      <input id="username" type="text" class="validate">
-      <label for="username">Username</label>
+  <form [formGroup]="form" (ngSubmit)="loginHandler()">
+    <div class="row">
+      <div class="input-field col offset-s3 s6">
+        <input id="username" type="text" class="validate" formControlName="username">
+        <label for="username">Username</label>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col offset-s3 s6">
-      <input id="password" type="password" class="validate">
-      <label for="password">Password</label>
+    <div class="row">
+      <div class="input-field col offset-s3 s6">
+        <input id="password" type="password" class="validate" formControlName="password">
+        <label for="password">Password</label>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col offset-s3 s6">
-      <a class="waves-effect waves-light btn">Login</a>
+    <div class="row">
+      <div class="col offset-s3 s6">
+        <button type="submit" class="waves-effect waves-light btn">Login</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
