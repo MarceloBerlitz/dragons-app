@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 
-import { DragonListResponse } from '../integration/dragon-list.response';
+import { DragonResponse } from '../integration/dragon.response';
 import { DragonCreationRequest } from '../integration/dragon-creation.request';
 import { DragonEditionRequest } from '../integration/dragon-edition.request';
 
@@ -15,8 +15,8 @@ export class DragonRestService {
     private http: HttpClient
   ) { }
 
-  public getDragonsList(): Observable<DragonListResponse[]> {
-    return this.http.get<DragonListResponse[]>(environment.dragonApi);
+  public getDragonsList(): Observable<DragonResponse[]> {
+    return this.http.get<DragonResponse[]>(environment.dragonApi);
   }
 
   public createDragon(dragonCreationRequest: DragonCreationRequest): Observable<void> {
@@ -27,8 +27,8 @@ export class DragonRestService {
     return this.http.delete<void>(`${environment.dragonApi}/${id}`);
   }
 
-  public getDragon(id: string): Observable<DragonListResponse> {
-    return this.http.get<DragonListResponse>(`${environment.dragonApi}/${id}`);
+  public getDragon(id: string): Observable<DragonResponse> {
+    return this.http.get<DragonResponse>(`${environment.dragonApi}/${id}`);
   }
 
   public editDragon(dragonEditionRequest: DragonEditionRequest, id: string) {

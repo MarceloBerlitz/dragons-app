@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { DragonListModel } from '../../core/model/dragon-list.model';
+import { DragonModel } from '../../core/model/dragon.model';
 import { DragonService } from '../../core/service/dragon.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class CreateComponent {
     private dragonService: DragonService
   ) { }
 
-  createDragon(dragon: DragonListModel): void {
+  createDragon(dragon: DragonModel): void {
     this.dragonService.createDragon(dragon).subscribe(() => {
       alert('Dragão cadastrado com sucesso.');
     }, err => {

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import * as moment from 'moment';
 
-import { DragonListModel } from '../../../core/model/dragon-list.model';
+import { DragonModel } from '../../../core/model/dragon.model';
 
 @Component({
   selector: 'app-form',
@@ -13,10 +13,10 @@ import { DragonListModel } from '../../../core/model/dragon-list.model';
 export class FormComponent implements OnChanges {
 
   @Input()
-  public dragon: DragonListModel;
+  public dragon: DragonModel;
 
   @Output()
-  public dragonOut: EventEmitter<DragonListModel> = new EventEmitter<DragonListModel>();
+  public dragonOut: EventEmitter<DragonModel> = new EventEmitter<DragonModel>();
 
   public form: FormGroup;
 
@@ -40,7 +40,7 @@ export class FormComponent implements OnChanges {
     if (this.form.valid) {
 
       if(!this.dragon) {
-        this.dragon = new DragonListModel(
+        this.dragon = new DragonModel(
           this.form.controls['name'].value,
           this.form.controls['type'].value
         );

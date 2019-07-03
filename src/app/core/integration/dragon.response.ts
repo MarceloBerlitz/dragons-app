@@ -1,4 +1,4 @@
-export class DragonListResponse {
+export class DragonResponse {
   constructor(
     public id: string,
     public createdAt: string,

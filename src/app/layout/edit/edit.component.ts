@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 
-import { DragonListModel } from '../../core/model/dragon-list.model';
+import { DragonModel } from '../../core/model/dragon.model';
 import { DragonService } from '../../core/service/dragon.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { DragonService } from '../../core/service/dragon.service';
 })
 export class EditComponent implements OnInit {
 
-  public dragon: DragonListModel;
+  public dragon: DragonModel;
 
   constructor(
     private dragonService: DragonService,
@@ -30,7 +30,7 @@ export class EditComponent implements OnInit {
     })
   }
 
-  public editDragon(dragon: DragonListModel) {
+  public editDragon(dragon: DragonModel) {
     this.dragonService.editDragon(dragon)
       .subscribe(() => {
         alert('Dragão editado com sucesso.')

@@ -1,4 +1,4 @@
-export class DragonListModel {
+export class DragonModel {
   constructor(
     public name: string,
     public type: string,

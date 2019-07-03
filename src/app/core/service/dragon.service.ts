@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { DragonListModel } from '../model/dragon-list.model';
-import { DragonListModelMapper } from '../mapper/dragon-list-model.mapper';
+import { DragonModel } from '../model/dragon.model';
+import { DragonModelMapper } from '../mapper/dragon-model.mapper';
 import { DragonRestService } from './dragon.rest-service';
 import { DragonCreationRequestMapper } from '../mapper/dragon-creation-request.mapper';
 import { DragonEditionRequestMapper } from '../mapper/dragon-edition-request.mapper';
@@ -15,20 +15,20 @@ export class DragonService {
     private restService: DragonRestService
   ) { }
 
-  public getDragonsList(): Observable<DragonListModel[]> {
+  public getDragonsList(): Observable<DragonModel[]> {
     return this.restService.getDragonsList().pipe(
-      map(res => DragonListModelMapper.mapFromList(res)),
+      map(res => DragonModelMapper.mapFromList(res)),
       map(res => DragonService.sortDragons(res))
     );
   }
 
-  public getDragon(id: string): Observable<DragonListModel> {
+  public getDragon(id: string): Observable<DragonModel> {
     return this.restService.getDragon(id).pipe(
-      map(res => DragonListModelMapper.mapFrom(res))
+      map(res => DragonModelMapper.mapFrom(res))
     )
   }
 
-  public createDragon(dragon: DragonListModel): Observable<void> {
+  public createDragon(dragon: DragonModel): Observable<void> {
     return this.restService.createDragon(
       DragonCreationRequestMapper.mapFrom(dragon)
     );
@@ -38,7 +38,7 @@ export class DragonService {
     return this.restService.deleteDragon(id);
   }
 
-  private static sortDragons(dragons: DragonListModel[]): DragonListModel[] {
+  private static sortDragons(dragons: DragonModel[]): DragonModel[] {
     return dragons.sort((a, b) => {
       if (a.name < b.name) {
         return 1;
@@ -50,7 +50,7 @@ export class DragonService {
     });
   }
 
-  public editDragon(dragon: DragonListModel): Observable<void> {
+  public editDragon(dragon: DragonModel): Observable<void> {
     return this.restService.editDragon(DragonEditionRequestMapper.mapFrom(dragon), dragon.id);
   }
 }

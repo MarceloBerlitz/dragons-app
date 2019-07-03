@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DragonListModel } from '../../core/model/dragon-list.model';
+import { DragonModel } from '../../core/model/dragon.model';
 import { DragonService } from '../../core/service/dragon.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { DragonService } from '../../core/service/dragon.service';
 })
 export class ListComponent implements OnInit {
 
-  public dragonsList: DragonListModel[];
+  public dragonsList: DragonModel[];
 
   constructor(
     private service: DragonService
