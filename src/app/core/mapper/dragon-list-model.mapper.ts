@@ -6,10 +6,10 @@ import {DragonListModel} from '../model/dragon-list.model';
 export class DragonListModelMapper {
   public static mapFrom(dragon: DragonListResponse): DragonListModel {
     return new DragonListModel(
-      dragon.id,
-      DragonListModelMapper.formatDate(dragon.createdAt),
       dragon.name,
       dragon.type,
+      dragon.id,
+      DragonListModelMapper.formatDate(dragon.createdAt),
       dragon.histories);
   }
 

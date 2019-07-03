@@ -1,9 +1,10 @@
-<table>
+<h3 *ngIf="!dragonsList" class="center">Carregando dragões...</h3>
+<table *ngIf="dragonsList">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Tipo</th>
-      <th>Criação</th>
+      <th>Data de criação</th>
     </tr>
   </thead>
   <tbody>

@@ -1,0 +1,25 @@
+<div class="row">
+  <form class="col s12" [formGroup]="form" (ngSubmit)="submitDragon()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="name" type="text" class="validate" formControlName="name">
+        <label for="name">Nome</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="type" type="text" class="validate" formControlName="type">
+        <label for="type">Tipo</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="creation-date" type="text" class="validate">
+        <label for="creation-date">Data de criação</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12">
+        <button type="submit" class="waves-effect waves-light btn">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>
