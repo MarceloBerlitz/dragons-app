@@ -12,8 +12,7 @@
         <label for="type">Tipo</label>
       </div>
       <div class="input-field col s6">
-        <input id="creation-date" type="text" class="validate">
-        <label for="creation-date">Data de criação</label>
+        <input disabled id="creation-date" type="text" class="validate" [value]="getCreatedAt()">
       </div>
     </div>
     <div class="row">

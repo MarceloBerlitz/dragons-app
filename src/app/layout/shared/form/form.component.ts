@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {DragonListModel} from '../../../core/model/dragon-list.model';
@@ -41,5 +42,9 @@ export class FormComponent {
 
       this.dragonOut.emit(this.dragon);
     }
+  }
+
+  public getCreatedAt(): string {
+    return this.dragon && this.dragon.createdAt || moment().format('DD/MM/YYYY');
   }
 }
