@@ -4,10 +4,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dragons-list',
-  templateUrl: './dragons-list.component.html',
-  styleUrls: ['./dragons-list.component.css']
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
 })
-export class DragonsListComponent implements OnInit {
+export class LayoutComponent implements OnInit {
 
   constructor(
     private router: Router

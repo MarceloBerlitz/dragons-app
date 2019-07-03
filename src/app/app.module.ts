@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginModule} from './login/login.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {DragonsListModule} from './dragons-list/dragons-list.module';
+import {LayoutModule} from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import {DragonsListModule} from './dragons-list/dragons-list.module';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
-    DragonsListModule,
+    LayoutModule,
     BrowserAnimationsModule
   ],
   providers: [],

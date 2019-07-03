@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.form.getRawValue())
       .subscribe(res => this.authService.setAuth(res),
         err => alert(err),
-        () => { this.router.navigate(['dragons-list'])
+        () => { this.router.navigate(['dragons'])
           .then(() => {} ); });
   }
 }
