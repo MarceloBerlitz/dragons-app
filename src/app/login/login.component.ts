@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {LoginService} from './service/login.service';
-import {Router} from '@angular/router';
-import {AuthService} from '../core/auth/auth.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { LoginService } from './service/login.service';
+import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public form: FormGroup;
 
@@ -23,9 +24,6 @@ export class LoginComponent implements OnInit {
       username: this.formBuilder.control('', Validators.required),
       password: this.formBuilder.control('', Validators.required)
     });
-  }
-
-  ngOnInit() {
   }
 
   public loginHandler(): void {

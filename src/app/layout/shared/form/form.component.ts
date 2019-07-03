@@ -1,14 +1,16 @@
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import * as moment from 'moment';
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DragonListModel} from '../../../core/model/dragon-list.model';
+
+import { DragonListModel } from '../../../core/model/dragon-list.model';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnChanges {
 
   @Input()
   public dragon: DragonListModel;
@@ -22,9 +24,16 @@ export class FormComponent {
     private formBuilder: FormBuilder
   ) {
     this.form = this.formBuilder.group({
-      name: this.formBuilder.control(this.dragon? this.dragon.name : '', Validators.required),
-      type: this.formBuilder.control(this.dragon? this.dragon.type : '', Validators.required)
+      name: this.formBuilder.control('', Validators.required),
+      type: this.formBuilder.control('', Validators.required)
     })
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes.dragon.currentValue) {
+      this.form.controls['name'].setValue(this.dragon.name);
+      this.form.controls['type'].setValue(this.dragon.type);
+    }
   }
 
   public submitDragon(): void {

@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
-import {DragonListResponse} from '../integration/dragon-list.response';
-import {DragonListModel} from '../model/dragon-list.model';
+import { DragonListResponse } from '../integration/dragon-list.response';
+import { DragonListModel } from '../model/dragon-list.model';
 
 export class DragonListModelMapper {
   public static mapFrom(dragon: DragonListResponse): DragonListModel {

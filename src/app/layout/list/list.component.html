@@ -4,14 +4,24 @@
     <tr>
       <th>Nome</th>
       <th>Tipo</th>
-      <th>Data de criação</th>
+      <th class="hide-on-small-and-down">Data de criação</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let dragon of dragonsList">
       <td>{{ dragon.name }}</td>
       <td>{{ dragon.type }}</td>
-      <td>{{ dragon.createdAt }}</td>
+      <td class="hide-on-small-and-down">{{ dragon.createdAt }}</td>
+      <td>
+        <a class="btn teal lighten-1" href="#" routerLink="../edit/{{dragon.id}}">
+          <i class="material-icons">edit</i>
+        </a>
+        <button class="btn red lighten-1 delete-btn" (click)="deleteDragon(dragon.id)">
+          <i class="material-icons">delete</i>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
+<a class="btn-floating btn-large waves-effect waves-light red hide-on-med-and-up" routerLink="../create"><i class="material-icons">add</i></a>

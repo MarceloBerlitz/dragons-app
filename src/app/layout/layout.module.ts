@@ -1,11 +1,13 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {HeaderComponent} from './header/header.component';
-import {LayoutComponent} from './layout.component';
-import {ListModule} from './list/list.module';
-import {LayoutRoutingModule} from './layout-routing.module';
-import {ReactiveFormsModule} from '@angular/forms';
-import {CreateModule} from './create/create.module';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { HeaderComponent } from './header/header.component';
+import { LayoutComponent } from './layout.component';
+import { ListModule } from './list/list.module';
+import { LayoutRoutingModule } from './layout-routing.module';
+import { CreateModule } from './create/create.module';
+import { EditModule } from './edit/edit.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import {CreateModule} from './create/create.module';
     CommonModule,
     ListModule,
     CreateModule,
+    EditModule,
     LayoutRoutingModule,
     ReactiveFormsModule
   ],

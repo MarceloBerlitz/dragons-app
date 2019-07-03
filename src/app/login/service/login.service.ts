@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
-import {LoginRequest} from '../integration/login.request';
-import {map} from 'rxjs/operators';
-import {LoginRestService} from './login.rest-service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { LoginRequest } from '../integration/login.request';
+import { LoginRestService } from './login.rest-service';
 
 @Injectable()
 export class LoginService {

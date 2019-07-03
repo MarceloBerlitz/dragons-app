@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DragonService } from './list.service';
+import { DragonService } from './dragon.service';
 
 describe('ListService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

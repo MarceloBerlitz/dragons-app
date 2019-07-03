@@ -1,12 +1,8 @@
-import {Injectable} from '@angular/core';
-import {StorageEnum} from '../../shared/enum/storage.enum';
+import { Injectable } from '@angular/core';
+import { StorageEnum } from '../../shared/enum/storage.enum';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
-
-  constructor() { }
 
   public isAuth(): boolean {
     return !!localStorage.getItem(StorageEnum.TOKEN);

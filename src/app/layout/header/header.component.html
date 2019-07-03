@@ -1,9 +1,9 @@
-<nav>
+<nav class="teal">
   <div class="nav-wrapper">
-    <a class="brand-logo center">Dragons App</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <a class="brand-logo left" routerLink="list">Dragons App</a>
+    <ul id="nav-mobile" class="right">
       <li routerLinkActive="active"><a routerLink="list">Dragões</a></li>
-      <li routerLinkActive="active"><a routerLink="create">Cadastrar</a></li>
+      <li routerLinkActive="active" class="hide-on-small-and-down"><a routerLink="create">Cadastrar</a></li>
       <li><a (click)="doLogout()">Sair</a></li>
     </ul>
   </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DragonListModel} from '../../core/model/dragon-list.model';
-import {DragonService} from '../../core/service/dragon.service';
+
+import { DragonListModel } from '../../core/model/dragon-list.model';
+import { DragonService } from '../../core/service/dragon.service';
 
 @Component({
   selector: 'app-list',
@@ -16,10 +17,23 @@ export class ListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.updateDragonsList();
+  }
+
+  private updateDragonsList(): void {
     this.service.getDragonsList()
       .subscribe(res => {
         this.dragonsList = res;
       });
   }
 
+  public deleteDragon(id: string): void {
+    this.service.deleteDragon(id)
+      .subscribe(() => {
+        alert('Dragão excluído.');
+        this.updateDragonsList();
+      }, err => {
+        alert(`Erro ao excluir dragão: ${JSON.stringify(err)}`);
+      });
+  }
 }

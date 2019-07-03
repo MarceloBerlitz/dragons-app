@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StorageEnum} from '../shared/enum/storage.enum';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+
+import { StorageEnum } from '../shared/enum/storage.enum';
 
 @Component({
   selector: 'app-dragons-list',

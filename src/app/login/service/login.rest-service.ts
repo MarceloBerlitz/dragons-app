@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable, of, throwError} from 'rxjs';
-import {LoginResponse} from '../integration/login.response';
-import {LoginRequest} from '../integration/login.request';
+import { Observable, of, throwError } from 'rxjs';
+
+import { LoginResponse } from '../integration/login.response';
+import { LoginRequest } from '../integration/login.request';
 
 @Injectable()
 export class LoginRestService {
