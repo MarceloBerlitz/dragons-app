@@ -14,8 +14,21 @@ export class ListService {
 
   public getDragonsList(): Observable<DragonListModel[]> {
     return this.restService.getDragonsList().pipe(
-      map(res => DragonListModelMapper.mapFromList(res))
+      map(res => DragonListModelMapper.mapFromList(res)),
+      map(res => ListService.sortDragons(res))
     );
+  }
+
+  private static sortDragons(dragons: DragonListModel[]): DragonListModel[] {
+    return dragons.sort((a, b) => {
+      if (a.name < b.name) {
+        return 1;
+      }
+      if (a.name > b.name) {
+        return -1;
+      }
+      return 0;
+    });
   }
 
 }
