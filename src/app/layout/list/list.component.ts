@@ -28,12 +28,14 @@ export class ListComponent implements OnInit {
   }
 
   public deleteDragon(id: string): void {
-    this.service.deleteDragon(id)
-      .subscribe(() => {
-        alert('Dragão excluído.');
-        this.updateDragonsList();
-      }, err => {
-        alert(`Erro ao excluir dragão: ${JSON.stringify(err)}`);
-      });
+    if (confirm('Tem certeza que deseja excluir este Dragão?')) {
+      this.service.deleteDragon(id)
+        .subscribe(() => {
+          alert('Dragão excluído.');
+          this.updateDragonsList();
+        }, err => {
+          alert(`Erro ao excluir dragão: ${JSON.stringify(err)}`);
+        });
+    }
   }
 }
