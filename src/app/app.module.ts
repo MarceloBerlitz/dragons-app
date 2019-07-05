@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -20,7 +20,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     LoginModule,
     LayoutModule,
-    BrowserAnimationsModule,
+    NoopAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'inline'
     })

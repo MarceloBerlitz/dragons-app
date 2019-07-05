@@ -1,9 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 
-import { ListComponent } from './list.component';
-import { DragonService } from '../../core/service/dragon.service';
+import { ToastrModule } from 'ngx-toastr';
+
+import { ListComponent } from '../list.component';
+import { DragonService } from '../../../core/service/dragon.service';
+import { ListComponentStub as stub } from './list.component.stub';
 
 describe('ListComponent', () => {
   let component: ListComponent;
@@ -13,11 +17,12 @@ describe('ListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ListComponent ],
-      imports: [ RouterTestingModule ],
+      imports: [
+        RouterTestingModule,
+        ToastrModule.forRoot()
+      ],
       providers: [
-        { provide: DragonService, use: {} },
-        { provide: Router, use: {} },
-        { provide: ActivatedRoute, use: {} }
+        { provide: DragonService, useClass: stub }
       ]
     })
     .compileComponents();
@@ -25,6 +30,7 @@ describe('ListComponent', () => {
 
   beforeEach(() => {
     dragonService = TestBed.get(DragonService);
+    spyOn(dragonService, 'getDragonsList').and.callFake(() => of(null));
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
