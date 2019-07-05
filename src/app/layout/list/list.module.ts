@@ -13,8 +13,6 @@ import { ListComponent } from './list.component';
     CommonModule,
     HttpClientModule,
     RouterModule
-  ],
-  providers: [
   ]
 })
 export class ListModule { }

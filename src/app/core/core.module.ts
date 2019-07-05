@@ -7,7 +7,7 @@ import { DragonService } from './service/dragon.service';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   providers: [
     DragonService,

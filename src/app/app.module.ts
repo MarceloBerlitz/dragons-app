@@ -22,7 +22,7 @@ import { AuthGuard } from './guards/auth.guard';
     LayoutModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      positionClass: ''
+      positionClass: 'inline'
     })
   ],
   providers: [
