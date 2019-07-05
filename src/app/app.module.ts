@@ -10,6 +10,8 @@ import { LoginModule } from './login/login.module';
 import { LayoutModule } from './layout/layout.module';
 import { AuthService } from './core/auth/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AuthGuard } from './guards/auth.guard';
     NoopAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'inline'
-    })
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthService,
