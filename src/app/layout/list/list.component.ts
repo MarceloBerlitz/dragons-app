@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ToastrService } from 'ngx-toastr';
+
 import { DragonModel } from '../../core/model/dragon.model';
 import { DragonService } from '../../core/service/dragon.service';
 
@@ -13,7 +15,8 @@ export class ListComponent implements OnInit {
   public dragonsList: DragonModel[];
 
   constructor(
-    private service: DragonService
+    private service: DragonService,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit() {
@@ -24,6 +27,8 @@ export class ListComponent implements OnInit {
     this.service.getDragonsList()
       .subscribe(res => {
         this.dragonsList = res;
+      }, err => {
+        this.toaster.error(err);
       });
   }
 
@@ -31,10 +36,10 @@ export class ListComponent implements OnInit {
     if (confirm('Tem certeza que deseja excluir este Dragão?')) {
       this.service.deleteDragon(id)
         .subscribe(() => {
-          alert('Dragão excluído.');
+          this.toaster.success('Dragão excluído.');
           this.updateDragonsList();
         }, err => {
-          alert(`Erro ao excluir dragão: ${JSON.stringify(err)}`);
+          this.toaster.error(JSON.stringify(err));
         });
     }
   }

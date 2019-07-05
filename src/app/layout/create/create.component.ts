@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { ToastrService } from 'ngx-toastr';
 
 import { DragonModel } from '../../core/model/dragon.model';
 import { DragonService } from '../../core/service/dragon.service';
@@ -11,14 +14,22 @@ import { DragonService } from '../../core/service/dragon.service';
 export class CreateComponent {
 
   constructor(
-    private dragonService: DragonService
+    private dragonService: DragonService,
+    private toaster: ToastrService,
+    private router: Router
   ) { }
 
-  createDragon(dragon: DragonModel): void {
+  public createDragon(dragon: DragonModel): void {
     this.dragonService.createDragon(dragon).subscribe(() => {
-      alert('Dragão cadastrado com sucesso.');
+      this.toaster.success('Dragão cadastrado.');
     }, err => {
-      alert(`Erro ao cadastrar Dragão: ${JSON.stringify(err)}`);
-    })
+      this.toaster.error(JSON.stringify(err));
+    }, () => {
+      this.router.navigate(['dragons/list']).then(() => {});
+    });
+  }
+
+  public cancelar(): void {
+    this.router.navigate(['dragons/list']).then(() => {});
   }
 }

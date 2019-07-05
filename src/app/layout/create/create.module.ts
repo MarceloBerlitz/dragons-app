@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CreateComponent } from './create.component';
 import { CoreModule } from '../../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    ToastrModule
   ]
 })
 export class CreateModule { }

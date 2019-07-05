@@ -18,6 +18,9 @@ export class FormComponent implements OnChanges {
   @Output()
   public dragonOut: EventEmitter<DragonModel> = new EventEmitter<DragonModel>();
 
+  @Output()
+  private cancelou: EventEmitter<void> = new EventEmitter<void>();
+
   public form: FormGroup;
 
   constructor(
@@ -26,7 +29,7 @@ export class FormComponent implements OnChanges {
     this.form = this.formBuilder.group({
       name: this.formBuilder.control('', Validators.required),
       type: this.formBuilder.control('', Validators.required)
-    })
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -55,5 +58,9 @@ export class FormComponent implements OnChanges {
 
   public getCreatedAt(): string {
     return this.dragon && this.dragon.createdAt || moment().format('DD/MM/YYYY');
+  }
+
+  public cancelar(): void {
+    this.cancelou.emit();
   }
 }
