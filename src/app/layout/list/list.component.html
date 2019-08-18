@@ -14,10 +14,10 @@
       <td>{{ dragon.type }}</td>
       <td class="hide-on-small-and-down">{{ dragon.createdAt }}</td>
       <td>
-        <a class="btn teal lighten-1" href="#" routerLink="../edit/{{dragon.id}}">
+        <a class="btn teal lighten-1" href="#" title="Detalhes / Editar" routerLink="../edit/{{dragon.id}}">
           <i class="material-icons">edit</i>
         </a>
-        <button class="btn red lighten-1 delete-btn" (click)="deleteDragon(dragon.id)">
+        <button class="btn red lighten-1 delete-btn" title="Excluir Dragão" (click)="deleteDragon(dragon.id)">
           <i class="material-icons">delete</i>
         </button>
       </td>
